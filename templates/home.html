@@ -1,0 +1,208 @@
+<doctype html>
+  <html>
+    <head>
+      <title>
+       DeepSheild_Home
+      </title>
+      {%include 'homenav.html'%}
+     
+      {%include 'bootstrap.html'%}
+      {%include 'js.html'%}
+      <style>
+          body {
+            background: url('static/body-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+          }
+        .overlay-container {
+          text-align: center;
+          color: white;
+        }
+        .custom-card {
+        background-color:black;
+        text-decoration: none;
+        color: aliceblue;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>HELLO WORLD!!</h1>
+        <h5>HII</h5>
+      <h1 class="mt-4 text-center" style="font-family:Helvetica; font-size:35px;"><b>Unveiling DeepSheild, Your Shield Against Digital DeepFakes</b></h1>
+      
+      <p class="text-center" style="font-size:24px;">Detect, analyze, and safeguard the authenticity of visual content in a rapidly evolving digital landscape. Trust DeepSheild for a secure and vigilant defense against the manipulation of reality.</p>
+    </div>
+    <div class="mt-4 text-center" style="font-family:Helvetica; font-size:35px;">
+      <h1>Select Your File Format...</h1>
+    </div>
+      <div class="text-center row" style="margin: 40px;">
+        <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body custom-card">
+            <a href="{{url_for('videodrop')}}" class="card custom-card">
+            <h5 class="card-title">Detect a Video</h5>
+            <h6 class="card-subtitle mb-2">Upload video Here...</h6>
+            <h6 class="card-subtitle mb-2" style="color:greenyellow">(Beta)</h6>
+            <p class="card-text">If you have a video that you think is deepfake, Upload here and know if it is a real video or deepfaked.</p>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body custom-card">
+            <a href="your-page-url" class="card custom-card">
+            <h5 class="card-title">Detect a Picture</h5>
+            <h6 class="card-subtitle mb-2 ">Upload Picture Here...</h6>
+            <h6 class="card-subtitle mb-2" style="color:greenyellow">(Beta)</h6>
+            <p class="card-text">If you have a Picture that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
+            </a>
+          </div>
+        </div>
+          </div>
+           <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body custom-card">
+            <a href="your-page-url" class="card custom-card">
+            <h5 class="card-title">Detect an Audio</h5>
+            <h6 class="card-subtitle mb-2 ">Upload Audio Here...</h6>
+            <h6 class="card-subtitle mb-2" style="color:greenyellow">(Beta)</h6>
+            <p class="card-text">If you have an Audio that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
+          </a>
+          </div>
+        </div>
+             </div>
+              <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body custom-card">
+            <a href="your-page-url" class="card custom-card">
+            <h5 class="card-title">Detect a Document</h5>
+            <h6 class="card-subtitle mb-2 ">Upload Your Document Here...</h6>
+            <h6 class="card-subtitle mb-2" style="color: red;">(Under Development)</h6>
+            <p class="card-text">If you have a Document that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
+            </a>
+          </div>
+        </div>
+                </div>
+      </div>
+       <div class="text-center row" style="margin: 40px;">
+      
+         <div class="col-sm-3">
+           <div class="card" style="width: 18rem;">
+             <div class="card-body custom-card">
+              <a href="your-page-url" class="card custom-card">
+               <h5 class="card-title">Detect an Archive</h5>
+               <h6 class="card-subtitle mb-2 ">Upload Your Archive Here...</h6>
+               <h6 class="card-subtitle mb-2" style="color: red;">(Under Development)</h6>
+            
+               <p class="card-text">If you have a Document that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
+               </a>
+             </div>
+           </div>
+                      </div>
+         <div class="col-sm-3">
+           <div class="card" style="width: 18rem;">
+             <div class="card-body custom-card">
+              <a href="your-page-url" class="card custom-card">
+               <h5 class="card-title">Detect a Metadata</h5>
+               <h6 class="card-subtitle mb-2 ">Upload a Metadata Here...</h6>
+               <h6 class="card-subtitle mb-2" style="color: red;">(Under Development)</h6>
+            
+               <p class="card-text">If you have a Metadata that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
+               </a>
+             </div>
+           </div>
+                      </div>
+         <div class="col-sm-3">
+           <div class="card" style="width: 18rem;">
+             <div class="card-body custom-card">
+              <a href="your-page-url" class="card custom-card">
+               <h5 class="card-title">Detect a Blockchain </h5>
+               <h6 class="card-subtitle mb-2">Upload your Blockchain Here...</h6>
+               <h6 class="card-subtitle mb-2" style="color: red;">(Under Development)</h6>
+            
+               <p class="card-text">If you have a Blockchain that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
+               </a>
+             </div>
+           </div>
+                      </div>
+                    <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body custom-card">
+            <a href="your-page-url" class="card custom-card">
+            <h5 class="card-title">Detect a 3D Models </h5>
+            <h6 class="card-subtitle mb-2 ">Upload a 3D Model</h6>
+            <h6 class="card-subtitle mb-2" style="color: red;">(Under Development)</h6>
+            
+            <p class="card-text">If you have a 3D Model that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
+            </a>
+          </div>
+        </div>
+                    </div>
+      </div>
+
+      <div class="text-center">
+        <h1>Still Looking For Something Else?</h1>
+      </div>
+      <div style="margin:70px;">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="#">
+            <img style="filter:blur(5px);"class="d-block w-100" src="static/laptop.jpg" alt="First slide"></a>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Download for Windows</h5>
+              <p>Download the DeepSheild Desktop version for the best Deepfake detection at your hands...</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <a href="#">
+            <img style="filter:blur(5px);" class="d-block w-100" src="static\IOS.jpg" alt="Second slide"></a>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Download for IOS</h5>
+              <p>Download the DeepSheild IOS version for the best Deepfake detection at your hands...</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <a href="#">
+            <img style="filter:blur(5px);" class="d-block w-100" src="static\mobilepic.jpg" alt="Third slide"></a>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Download for Andriod</h5>
+              <p>Download the DeepSheild Andriod version for the best Deepfake detection at your hands...</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      </div>
+      </div>
+
+      <div class="container block__header mb-4 text-center">
+        <h1><b>About Us</b></h1>
+        <p style="font-size: 24px;">Welcome to DeepSheild, where innovation meets integrity in the fight 
+          against deepfake manipulation. At DeepSheild, we are passionate about 
+          ensuring the authenticity of digital content in an era where misinformation poses 
+          a significant threat. Our dedicated team of researchers, developers, and tech enthusiasts 
+          collaborates to bring cutting-edge deepfake detection solutions to the forefront. With a commitment 
+          to transparency and ethical AI practices, we strive to empower users and organizations with the tools 
+          they need to identify and mitigate the impact of manipulated media. Join us on this journey as we champion 
+          truth, integrity, and technological advancements in the realm of digital content security.</p>
+      </div>
+      <div class="container text-center block__header">
+        <h1>A Proficient Deepfake Detector Trusted by Millions</h1>
+<p style="font-size: 24px;">In an era where digital content can be manipulated, 
+  DeepSheild helps maintain trust by providing a tool that safeguards against deceptive and misleading videos.</p>
+
+
+
+      </div>
+      {%include 'footer.html'%}
+    </body>
+  </html>

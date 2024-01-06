@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepShield</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        #name {
+            font-family: 'Arial', sans-serif;
+            background-color:white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #drop-area {
+            height: 250px;
+            border: 2px dashed #007bff;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: border 0.3s;
+            position: relative;
+            overflow: hidden;
+            margin: 10px; /* Added margin for equal spacing on all sides */
+        }
+
+        #drop-area.highlight {
+            border: 2px dashed #0056b3;
+        }
+
+        #drop-area i {
+            font-size: 48px;
+            color: #007bff;
+        }
+
+        #drop-area p {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        #fileElem {
+            display: none;
+        }
+
+        #gallery {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #gallery video {
+            max-width: 100%;
+            max-height: 150px;
+            margin: 10px;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+
+        #gallery video:hover {
+            transform: scale(1.1);
+        }
+
+        #submitBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #17518c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            pointer-events: none; /* Initially set to none */
+        }
+
+        #submitBtn.active {
+            pointer-events: auto; /* Enable pointer events when active */
+        }
+
+        #submitBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    {%include 'bootstrap.html'%}
+</head>
+
+    
+<body>
+    <div class="text-center mt-4">
+        <h1 style="font-family:'Times New Roman', Times, serif;">
+            Upload a video to DEEPSHEILD</h1>
+    </div>
+    <div class="text-center">
+         <h5 class="mt-3" style="font-family:'Times New Roman', Times, serif;">
+            Select or Drag and Drop a video here to find if the video is real or deepfake...
+        </h5></div>
+    <div id="name">
+    <div class="container">
+        <div id="drop-area" class="border rounded">
+            <div>
+                <i class="fas fa-cloud-upload-alt text-primary"></i>
+                <p>Drag and drop your video here or click to select a file.</p>
+            </div>
+            <input type="file" id="fileElem" accept="video/*" />
+        </div>
+        <div id="gallery"></div>
+        <button id="submitBtn" class="active" onclick="submitVideos()">Submit</button>
+    </div>
+
+    <script>
+        let dropArea = document.getElementById('drop-area');
+        let fileElem = document.getElementById('fileElem');
+        let gallery = document.getElementById('gallery');
+        let submitBtn = document.getElementById('submitBtn');
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+            document.body.addEventListener(eventName, preventDefaults, false);
+        });
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        function highlight(e) {
+            dropArea.classList.add('highlight');
+        }
+
+        function unhighlight(e) {
+            dropArea.classList.remove('highlight');
+        }
+
+        function handleDrop(e) {
+            let dt = e.dataTransfer;
+            let files = dt.files;
+            handleFiles(files);
+        }
+
+        dropArea.addEventListener('click', () => {
+            fileElem.click();
+        });
+
+        fileElem.addEventListener('change', function (e) {
+            handleFiles(this.files);
+        });
+
+        function handleFiles(files) {
+            files = [...files];
+            gallery.innerHTML = ''; // Clear previous files
+            files.forEach(previewFile);
+            updateSubmitButton(files.length > 0);
+        }
+
+        function previewFile(file) {
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = function () {
+                if (file.type.startsWith('video/')) {
+                    let video = document.createElement('video');
+                    video.src = reader.result;
+                    video.controls = true;
+                    gallery.appendChild(video);
+                }
+            }
+        }
+
+        function updateSubmitButton(active) {
+            if (active) {
+                submitBtn.classList.add('active');
+            } else {
+                submitBtn.classList.remove('active');
+            }
+        }
+
+        function submitVideos() {
+            // Replace this with your actual submission logic
+            alert('Videos submitted successfully!');
+        }
+    </script>
+    </div>
+</body>
+
+</html>

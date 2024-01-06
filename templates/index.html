@@ -1,0 +1,48 @@
+<doctype html>
+<html>
+  <head>
+    <title>Home</title>
+    <style>
+
+    body {
+      margin:0px;
+      padding: 0px;
+      border-top:40px;
+      background-color: #333; 
+      color: #fff;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .overlay-text {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 36px;
+      text-align: center;
+    }
+    </style>
+    {%include 'nav.html'%}
+    {% include 'bootstrap.html' %}
+  </head>
+  <body class="mt-4">
+    <h5>HELLO WORLD</h5>
+    <img src="static/pic1.jpg" class="img-fluid"  alt="My Image">
+    <div class=" lead overlay-text " style="color:white;">
+    <h1 class="text-center mt-4">Welcome to DEEPSHEILD</h1>
+     
+      <p class="lead mt-2" style="font-size:26px;">Please Enter Here</p>
+      <a href="{{url_for('home')}}" class="btn btn-dark btn-lg">Enter...</a>
+      <p class="mt-4" style="font-size: 30px; color:white;position: absolute; top: 180%; left: 10%;"><b>Everything Now At Your Fingertips...</b> </p>
+    </div>
+    {%include 'footer.html'%}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
