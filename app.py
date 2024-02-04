@@ -51,6 +51,10 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html')
 
+@app.route('/contactus')
+def contactus():
+    return render_template('contactus.html')
+
 @app.route('/videodrop')
 def videodrop():
     return render_template('videodrop.html')
