@@ -2,4 +2,3 @@ flask
 gunicorn
 PyMongo
 flask_pymongo
-MongoDB
