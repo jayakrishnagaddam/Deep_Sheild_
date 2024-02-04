@@ -5,7 +5,6 @@
        DeepSheild_Home
       </title>
       {%include 'homenav.html'%}
-     
       {%include 'bootstrap.html'%}
       {%include 'js.html'%}
       <style>
@@ -148,7 +147,7 @@
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <a href="#">
+            <a href="{{url_for('download')}}">
             <img style="filter:blur(5px);"class="d-block w-100" src="static/laptop.jpg" alt="First slide"></a>
             <div class="carousel-caption d-none d-md-block">
               <h5>Download for Windows</h5>
@@ -156,7 +155,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <a href="#">
+            <a href="{{url_for('download')}}">
             <img style="filter:blur(5px);" class="d-block w-100" src="static\IOS.jpg" alt="Second slide"></a>
             <div class="carousel-caption d-none d-md-block">
               <h5>Download for IOS</h5>
@@ -164,7 +163,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <a href="#">
+            <a href="{{url_for('download')}}">
             <img style="filter:blur(5px);" class="d-block w-100" src="static\mobilepic.jpg" alt="Third slide"></a>
             <div class="carousel-caption d-none d-md-block">
               <h5>Download for Andriod</h5>
@@ -182,9 +181,12 @@
         </a>
       </div>
       </div>
-      </div>
-
-      <div class="container block__header mb-4 text-center">
+      </div> 
+</div>
+                 <div>
+                          
+                 </div>
+      <div class="block__header mb-4 text-center">
         <h1><b>About Us</b></h1>
         <p style="font-size: 24px;">Welcome to DeepSheild, where innovation meets integrity in the fight 
           against deepfake manipulation. At DeepSheild, we are passionate about 
@@ -196,7 +198,7 @@
           truth, integrity, and technological advancements in the realm of digital content security.</p>
       </div>
       <div class="container text-center block__header">
-        <h1>A Proficient Deepfake Detector Trusted by Millions</h1>
+        <h1>A Proficient Deepfake Detector Developed by Tech enthusiast</h1>
 <p style="font-size: 24px;">In an era where digital content can be manipulated, 
   DeepSheild helps maintain trust by providing a tool that safeguards against deceptive and misleading videos.</p>
 

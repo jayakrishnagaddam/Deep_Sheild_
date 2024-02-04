@@ -1,6 +1,5 @@
 from flask import Flask, render_template, url_for, flash, request, redirect
 from flask_pymongo import PyMongo
-
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "1234"  # Add a secret key for flash messages
 app.config["MONGO_URI"] = "mongodb://localhost:27017/DeepSheild"
@@ -55,6 +54,10 @@ def signup():
 @app.route('/videodrop')
 def videodrop():
     return render_template('videodrop.html')
+ 
+@app.route('/download')
+def download():
+    return render_template('download.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

@@ -2,6 +2,7 @@
 <section class="background-radial-gradient overflow-hidden">
     {%include 'bootstrap.html'%}
     {%include 'js.html'%}
+    <title>Login</title>
     <style>
       .background-radial-gradient {
         background-color: hsl(218, 41%, 15%);
@@ -71,17 +72,16 @@
                 <p class="text-center" style="font-size: 24x;">Login Here...</p>
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 
-                <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3" class="form-control" />
-                  <label class="form-label" name="email" for="form3Example3">Email address</label>
+                  <input type="email" id="form3Example3" class="form-control" name="email" />
+                  <label class="form-label" for="form3Example3">Email address</label>
                 </div>
   
                 <!-- Password input -->
-                <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4" class="form-control" />
-                  <label class="form-label" name="email" for="form3Example4">Password</label>
-                </div>
+<div class="form-outline mb-4">
+  <input type="password" id="form3Example4" class="form-control" name="password" />
+  <label class="form-label" for="form3Example4">Password</label>
+</div>
   
                 <!-- Checkbox -->
                 <div class="form-check d-flex justify-content-center mb-4">
