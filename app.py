@@ -16,6 +16,7 @@ def home():
     return render_template('home.html')
 
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -59,6 +60,11 @@ def contactus():
 def videodrop():
     return render_template('videodrop.html')
  
+@app.route('/audiodrop')
+def audiodrop():
+    return render_template('audiodrop.html')
+
+
 @app.route('/download')
 def download():
     return render_template('download.html')

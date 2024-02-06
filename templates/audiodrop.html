@@ -7,61 +7,60 @@
     <title>DeepShield</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: #f0f0f0; /* Light background color */
-            position: relative; /* Ensure relative positioning for the content to overlay */
-        }
+       body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f0f0f0; /* Light background color */
+    position: relative; /* Ensure relative positioning for the content to overlay */
+}
 
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
 
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            mix-blend-mode: overlay; /* Allow circles to overlay without affecting the content */
-        }
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: overlay; /* Allow circles to overlay without affecting the content */
+}
 
-        .circle1 {
-            width: 150px;
-            height: 150px;
-            background: #7fb8e1; /* Light blue */
-            top: 20%;
-            left: 10%;
-        }
+.circle1 {
+    width: 150px;
+    height: 150px;
+    background: #7fb8e1; /* Light blue */
+    top: 20%;
+    left: 10%;
+}
 
-        .circle2 {
-            width: 120px;
-            height: 120px;
-            background: #a8d0e6; /* Lighter blue */
-            top: 50%;
-            left: 30%;
-        }
+.circle2 {
+    width: 120px;
+    height: 120px;
+    background: #a8d0e6; /* Lighter blue */
+    top: 50%;
+    left: 30%;
+}
 
-        .circle3 {
-            width: 180px;
-            height: 180px;
-            background: #b3b3cc; /* Light lavender */
-            top: 70%;
-            left: 70%;
-        }
+.circle3 {
+    width: 180px;
+    height: 180px;
+    background: #b3b3cc; /* Light lavender */
+    top: 70%;
+    left: 70%;
+}
 
-        /* ... (add more circles or customize as needed) ... */
-
-        #ex {
-            position: relative;
-            left: 5%;
-            top: 60px;
-            color: black;
-        }
+/* ... (add more circles or customize as needed) ... */
+#ex{
+    position: relative;
+    left: 5%;
+    top: 60px;
+    color: black;
+}
 
         #name {
             display: flex;
@@ -79,35 +78,37 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-
         #drop-area {
-            height: 250px;
-            background-color: rgba(255, 255, 255, 0.9); /* Light white background */
-            border: 2px dashed #000; /* Black dashed border */
-            border-radius: 20px; /* Increase border radius for a smoother look */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: border 0.3s;
-            position: relative;
-            overflow: hidden;
-            margin: 20px; /* Added margin for equal spacing on all sides */
-        }
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.9); /* Light white background */
+    border: 2px dashed #000; /* Black dashed border */
+    border-radius: 20px; /* Increase border radius for a smoother look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: border 0.3s;
+    position: relative;
+    overflow: hidden;
+    margin: 20px; /* Added margin for equal spacing on all sides */
+}
 
-        #drop-area div {
-            text-align: center; /* Center-align the content inside the drop area */
-        }
+#drop-area div {
+    text-align: center; /* Center-align the content inside the drop area */
+}
 
-        #drop-area i {
-            font-size: 48px;
-            color: #007bff; /* Blue color for the cloud icon */
-        }
+#drop-area i {
+    font-size: 48px;
+    color: #007bff; /* Blue color for the cloud icon */
+}
 
-        #drop-area p {
-            margin-top: 10px;
-            color: #555;
-        }
+#drop-area p {
+    margin-top: 10px;
+    color: #555;
+}
+
+
+        /* ... (other styles remain the same) ... */
 
         #submitBtn {
             margin-top: 20px;
@@ -119,11 +120,12 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
+            pointer-events: none;
         }
 
         /* ... (other styles remain the same) ... */
     </style>
-    {% include 'bootstrap.html' %}
+    {%include 'bootstrap.html'%}
 </head>
 
 <body>
@@ -134,95 +136,85 @@
         <!-- Add more circles or customize as needed -->
     </div>
     <div id="ex">
-        <div class="text-center mt-4">
-            <h1 style="font-family:'Times New Roman', Times, serif;">Upload a video to DEEPSHEILD</h1>
-        </div>
-        <div class="text-center">
-            <h5 class="mt-4" style="font-family:'Times New Roman', Times, serif;">
-                Select or Drag and Drop a video here to find if the video is real or deepfake...
-            </h5>
-        </div>
+    <div  class="text-center mt-4">
+        <h1 style="font-family:'Times New Roman', Times, serif;">Upload an Audio to DEEPSHEILD</h1>
+    </div>
+    <div class="text-center">
+        <h5 class="mt-4" style="font-family:'Times New Roman', Times, serif;">
+            Select or Drag and Drop an Audio here to find if the video is real or deepfake...
+        </h5>
+    </div>
     </div>
     <div id="name">
         <div class="container">
             <div id="drop-area" class="border rounded">
                 <div>
                     <i class=" mt-4 fas fa-cloud-upload-alt text-primary"></i>
-                    <p class="mt-4">Drag and drop your video here or click to select a file.</p>
+                    <p class="mt-4">Drag and drop your an Audio here or click to select a file.</p>
                 </div>
                 <div class="mt-0" style="position: relative;left: 5%;top: 3%;">
-                    <input type="file" id="fileElem" accept="video/*" />
+                <input type="file" id="fileElem" accept="audio/*" />
                 </div>
             </div>
             <div id="gallery"></div>
             <button id="submitBtn" class="active" onclick="submitVideos()">Submit</button>
         </div>
-
+    
         <script>
             let dropArea = document.getElementById('drop-area');
             let fileElem = document.getElementById('fileElem');
             let gallery = document.getElementById('gallery');
             let submitBtn = document.getElementById('submitBtn');
-        
-            // Event listeners for drag and drop functionality
+    
             ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
                 dropArea.addEventListener(eventName, preventDefaults, false);
                 document.body.addEventListener(eventName, preventDefaults, false);
             });
-        
+    
             ['dragenter', 'dragover'].forEach(eventName => {
                 dropArea.addEventListener(eventName, highlight, false);
             });
-        
+    
             ['dragleave', 'drop'].forEach(eventName => {
                 dropArea.addEventListener(eventName, unhighlight, false);
             });
-        
+    
             dropArea.addEventListener('drop', handleDrop, false);
-        
-            // Prevent default behavior for drag and drop events
+    
             function preventDefaults(e) {
                 e.preventDefault();
                 e.stopPropagation();
             }
-        
-            // Highlight drop area when dragging over it
+    
             function highlight(e) {
                 dropArea.classList.add('highlight');
             }
-        
-            // Remove highlight from drop area when dragging leaves it
+    
             function unhighlight(e) {
                 dropArea.classList.remove('highlight');
             }
-        
-            // Handle drop event
+    
             function handleDrop(e) {
                 let dt = e.dataTransfer;
-                let files = dt.files || e.target.files;
+                let files = dt.files;
                 handleFiles(files);
             }
-        
-           // Click event listener for drop area to trigger file input click
-dropArea.addEventListener('click', () => {
-    fileElem.click();
-});
-
-// Change event listener for file input
-fileElem.addEventListener('change', function (e) {
-    handleFiles(this.files);
-});
-
-
-            // Function to handle selected files
+    
+            dropArea.addEventListener('click', () => {
+                fileElem.click();
+            });
+    
+            fileElem.addEventListener('change', function (e) {
+                handleFiles(this.files);
+            });
+    
             function handleFiles(files) {
                 files = [...files];
                 gallery.innerHTML = ''; // Clear previous files
                 files.forEach(previewFile);
                 updateSubmitButton(files.length > 0);
             }
-        
-            // Function to preview selected files
+    
             function previewFile(file) {
                 let reader = new FileReader();
                 reader.readAsDataURL(file);
@@ -233,34 +225,23 @@ fileElem.addEventListener('change', function (e) {
                         video.controls = true;
                         gallery.appendChild(video);
                     }
-        
-                    // Display file name
-                    let fileName = document.createElement('p');
-                    fileName.textContent = file.name;
-                    gallery.appendChild(fileName);
                 }
             }
-        
-            // Function to update submit button state
+    
             function updateSubmitButton(active) {
                 if (active) {
                     submitBtn.classList.add('active');
-                    submitBtn.removeAttribute('disabled');
                 } else {
                     submitBtn.classList.remove('active');
-                    submitBtn.setAttribute('disabled', 'disabled');
                 }
             }
-        
-            // Function to handle submit button click
+    
             function submitVideos() {
                 // Replace this with your actual submission logic
                 alert('Videos submitted successfully!');
             }
         </script>
-        
-    </div>
-</body>
-
-</html>
-
+        </div>
+    </body>
+    
+    </html>
