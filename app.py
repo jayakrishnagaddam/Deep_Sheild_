@@ -60,6 +60,10 @@ def contactus():
 def videodrop():
     return render_template('videodrop.html')
  
+@app.route('/imagedrop')
+def imagedrop():
+    return render_template('imagedrop.html')
+
 @app.route('/audiodrop')
 def audiodrop():
     return render_template('audiodrop.html')
