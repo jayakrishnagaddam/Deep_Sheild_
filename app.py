@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, flash, request, redirect
 from flask_pymongo import PyMongo
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "1234"  # Add a secret key for flash messages
-app.config["MONGO_URI"] = "mongodb://localhost:27017/DeepSheild"
+app.config["MONGO_URI"] = "mongodb+srv://2100090162:manigaddam@deepsheild.kzgpo9p.mongodb.net/deepsheild"
 mongo = PyMongo(app)
 
 
