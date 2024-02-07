@@ -1,5 +1,5 @@
 run = "python app.py"
-modules = ["python-3.10:v25-20230920-d4ad2e4", "python-3.10:v25-20230920-d4ad2e4"]
+modules = ["python-3.10:v25-20230920-d4ad2e4"]
 
 [nix]
 channel = "stable-22_11"
