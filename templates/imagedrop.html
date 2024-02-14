@@ -258,7 +258,43 @@ fileElem.addEventListener('change', function (e) {
                 alert('Image submitted successfully!');
             }
         </script>
-        
+          <!-- Add the following script after the previous JavaScript code -->
+
+<script>
+    // Function to handle image classification
+    async function classifyImage(imageFile) {
+        const formData = new FormData();
+        formData.append('image', imageFile);
+
+        try {
+            const response = await fetch('/classify_image', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            return result.prediction;
+        } catch (error) {
+            console.error('Error classifying image:', error);
+            return 'Error';
+        }
+    }
+
+    // Function to handle submit button click
+    async function submitImage() {
+        const files = fileElem.files;
+        if (files.length === 0) {
+            alert('Please select an image to upload.');
+            return;
+        }
+
+        const imageFile = files[0];
+        const prediction = await classifyImage(imageFile);
+
+        alert(`Prediction: ${prediction}`);
+    }
+</script>
+
     </div>
 </body>
 
