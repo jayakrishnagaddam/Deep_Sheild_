@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, flash, request, redirect, jsonify
 from flask_pymongo import PyMongo
-from image_classifier import train_model, predict_image
+from classify_image import train_model, predict_image
 import os
 
 app = Flask(__name__)
