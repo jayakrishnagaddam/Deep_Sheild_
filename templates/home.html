@@ -4,13 +4,79 @@
       <title>
        DeepSheild_Home
       </title>
-      {%include 'homenav.html'%}
       {%include 'bootstrap.html'%}
-      {%include 'js.html'%}
+      {%include 'homenav.html'%}
       <style>
-          body {
-            background: url('static/body-background.jpg') no-repeat center center fixed;
+          @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+* {
+  font-family: 'Open Sans', 'sans-serif';
+}
+
+#ulid{
+  padding-bottom: 4%;
+  text-align: center;
+}
+
+#liid {
+  position: relative;
+  left: 28%;
+  display: inline;
+  margin: 10px;
+}
+
+.download {
+  width: 200px;
+  height: 75px;
+  background: black;
+  float: left;
+  border-radius: 5px;
+  position: relative;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid #fff;
+}
+
+.download > .fa {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+.df,
+.dfn {
+  position: absolute;
+  left: 70px;
+}
+
+.df {
+  top: 20px;
+  font-size: .68em;
+}
+
+.dfn {
+  top: 33px;
+  font-size: 1.08em;
+}
+
+.download:hover {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+        #image{
+          width: 100%;
+                height: 100vh; /* Set the height to cover the entire viewport */
+                object-fit: cover;
+        }
+          #bid{
+            background-color:bisque;
+            background-image: url('static/body-background.jpg') no-repeat center center fixed !important;
             background-size: cover;
+            padding-top: 5%;
+
           }
         .overlay-container {
           text-align: center;
@@ -30,13 +96,15 @@
         }
       </style>
     </head>
-    <body>
+    <body id="bid">
       <div class="container">
-        <h1>HELLO WORLD!!</h1>
-        <h5>HII</h5>
-      <h1 class="mt-4 text-center" style="font-family:Helvetica; font-size:35px;"><b>Unveiling DeepSheild, Your Shield Against Digital DeepFakes</b></h1>
+        <h2 class="mt-2 text-center">Welcome {{name}} !</h2>
+      <h1 class="mt-2 text-center" style="font-family:Helvetica; font-size:35px;"><b>Unveiling DeepSheild, 
+        Your Shield Against Digital DeepFakes</b></h1>
       
-      <p class="text-center" style="font-size:24px;">Detect, analyze, and safeguard the authenticity of visual content in a rapidly evolving digital landscape. Trust DeepSheild for a secure and vigilant defense against the manipulation of reality.</p>
+      <p class="text-center" style="font-size:24px;">Detect, analyze, and safeguard the
+         authenticity of visual content in a rapidly evolving digital landscape. 
+         Trust DeepSheild for a secure and vigilant defense against the manipulation of reality.</p>
     </div>
     <div class="mt-4 text-center" style="font-family:Helvetica; font-size:35px;">
       <h1>Select Your File Format...</h1>
@@ -146,54 +214,14 @@
         </div>
                     </div>
       </div>
-
-      <div class="text-center">
-        <h1>Still Looking For Something Else?</h1>
-      </div>
-      <div style="margin:70px;">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <a href="{{url_for('download')}}">
-            <img style="filter:blur(5px);"class="d-block w-100" src="static/laptop.jpg" alt="First slide"></a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Download for Windows</h5>
-              <p>Download the DeepSheild Desktop version for the best Deepfake detection at your hands...</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <a href="{{url_for('download')}}">
-            <img style="filter:blur(5px);" class="d-block w-100" src="static\IOS.jpg" alt="Second slide"></a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Download for IOS</h5>
-              <p>Download the DeepSheild IOS version for the best Deepfake detection at your hands...</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <a href="{{url_for('download')}}">
-            <img style="filter:blur(5px);" class="d-block w-100" src="static\mobilepic.jpg" alt="Third slide"></a>
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Download for Andriod</h5>
-              <p>Download the DeepSheild Andriod version for the best Deepfake detection at your hands...</p>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      </div>
-      </div> 
+       
+    </div>
 </div>
                  <div>
                           
                  </div>
       <div class="block__header mb-4 text-center">
+       
         <h1><b>About Us</b></h1>
         <p style="font-size: 24px;">Welcome to DeepSheild, where innovation meets integrity in the fight 
           against deepfake manipulation. At DeepSheild, we are passionate about 
@@ -204,14 +232,15 @@
           they need to identify and mitigate the impact of manipulated media. Join us on this journey as we champion 
           truth, integrity, and technological advancements in the realm of digital content security.</p>
       </div>
-      <div class="container text-center block__header">
-        <h1>A Proficient Deepfake Detector Developed by Tech enthusiast</h1>
-<p style="font-size: 24px;">In an era where digital content can be manipulated, 
+      <div class="">
+        <h1 class="text-center">A Proficient Deepfake Detector Developed by Tech enthusiast</h1>
+<p style="font-size: 24px;" class="text-center">In an era where digital content can be manipulated, 
   DeepSheild helps maintain trust by providing a tool that safeguards against deceptive and misleading videos.</p>
-
-
-
       </div>
+      {%include 'corousel.html'%}
       {%include 'footer.html'%}
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </body>
   </html>

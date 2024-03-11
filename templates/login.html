@@ -68,6 +68,15 @@
   
           <div class="card bg-glass">
             <div class="card-body px-4 py-5 px-md-5">
+              {% with messages = get_flashed_messages() %}
+                      {% if messages %}
+                        <ul class="flash">
+                          {% for message in messages %}
+                            <li>{{ message }}</li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    {% endwith %}
               <form method="post">
                 <p class="text-center" style="font-size: 24x;">Login Here...</p>
                 <!-- 2 column grid layout with text inputs for the first and last names -->

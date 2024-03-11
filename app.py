@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, flash, request, redirect, jsonify
+from flask import Flask, render_template, url_for, flash, request, redirect, jsonify, session
 from flask_pymongo import PyMongo
 import os
 
@@ -13,11 +13,16 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/logout')
+def logout():
+    session.pop('email', None)  
+    flash('You have been logged out', 'success') 
+    return redirect(url_for('login'))
 
 
-@app.route('/home')
-def home():
-    return render_template('home.html')
+@app.route('/home/<name>')
+def home(name):
+    return render_template('home.html', name=name)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -31,8 +36,9 @@ def login():
         user_data = mongo.db.users.find_one({'email': email, 'password': password})
 
         if user_data:
-            flash('Login successful', 'success')  # Flash success message
-            return redirect(url_for('home'))
+            firstname = user_data['first_name']
+            session['email'] = email
+            return redirect(url_for('home', name=firstname))
         else:
             error = 'Invalid username or password'
 
