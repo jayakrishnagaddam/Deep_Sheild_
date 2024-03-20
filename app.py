@@ -7,9 +7,9 @@ app.config["SECRET_KEY"] = "1234"  # Add a secret key for flash messages
 app.config["MONGO_URI"] = "mongodb+srv://2100090162:manigaddam@deepsheild.kzgpo9p.mongodb.net/deepsheild"
 mongo = PyMongo(app)
 
-
+#added this
 @app.route('/')
-def index():
+def index(): 
     return render_template('index.html')
 
 
