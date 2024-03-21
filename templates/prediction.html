@@ -1,12 +1,13 @@
-<doctype html>
-    <html>
-        <head>
-            <title>
-                Prediction
-            </title>
-        </head>
-        <body>
-            <h1>Prediction : {{prediction}}</h1>
-        </body>
-    </html>
-</doctype>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction</title>
+</head>
+<body>
+    <h1>Prediction: {{ prediction }}</h1>
+    {% if heatmap_img %}
+        <h2>Heat Map</h2>
+        <img src="data:image/jpeg;base64,{{ heatmap_img }}" alt="Heat Map">
+    {% endif %}
+</body>
+</html>
