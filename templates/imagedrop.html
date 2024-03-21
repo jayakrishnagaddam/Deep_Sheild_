@@ -134,11 +134,11 @@
         <!-- Add more circles or customize as needed -->
     </div>
     <div id="ex">
-        <div class="text-center mt-4">
-            <h1 style="font-family:'Times New Roman', Times, serif;">Upload a Picture to DEEPSHEILD</h1>
+        <div class="lead text-center mt-4">
+            <h1 class="lead" style="font-size:30px;">Upload a Picture to DEEPSHEILD</h1>
         </div>
         <div class="text-center">
-            <h5 class="mt-4" style="font-family:'Times New Roman', Times, serif;">
+            <h5 class="mt-4 lead" style="">
                 Select or Drag and Drop a Picture here to find if the video is real or deepfake...
             </h5>
         </div>
@@ -148,14 +148,14 @@
             <div id="drop-area" class="border rounded">
                 <div>
                     <i class=" mt-4 fas fa-cloud-upload-alt text-primary"></i>
-                    <p class="mt-4">Drag and drop your Picture here or click to select a file.</p>
+                    <p class="lead mt-4">Drag and drop your Picture here or click to select a file.</p>
                 </div>
                 <div class="mt-0" style="position: relative;left: 5%;top: 3%;">
                     <input type="file" id="fileElem" accept="image/*" />
                 </div>
             </div>
             <div id="gallery"></div>
-            <button id="submitBtn" class="active" onclick="submitVideos()">Submit</button>
+            <button id="submitBtn" class="active" onclick="submitImage()">Predict</button>
         </div>
 
         <script>
@@ -253,48 +253,11 @@ fileElem.addEventListener('change', function (e) {
             }
         
             // Function to handle submit button click
-            function submitVideos() {
-                // Replace this with your actual submission logic
+            function submitImage() {
                 alert('Image submitted successfully!');
             }
         </script>
-          <!-- Add the following script after the previous JavaScript code -->
-
-<script>
-    // Function to handle image classification
-    async function classifyImage(imageFile) {
-        const formData = new FormData();
-        formData.append('image', imageFile);
-
-        try {
-            const response = await fetch('/classify_image', {
-                method: 'POST',
-                body: formData
-            });
-
-            const result = await response.json();
-            return result.prediction;
-        } catch (error) {
-            console.error('Error classifying image:', error);
-            return 'Error';
-        }
-    }
-
-    // Function to handle submit button click
-    async function submitImage() {
-        const files = fileElem.files;
-        if (files.length === 0) {
-            alert('Please select an image to upload.');
-            return;
-        }
-
-        const imageFile = files[0];
-        const prediction = await classifyImage(imageFile);
-
-        alert(`Prediction: ${prediction}`);
-    }
-</script>
-
+          
     </div>
 </body>
 
