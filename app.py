@@ -40,7 +40,6 @@ model.to(DEVICE)
 model.eval()
 
 
-
 def predict(input_image_path):
     """Predict whether the image contains a real or fake face"""
     image = cv2.imread(input_image_path)
@@ -49,7 +48,7 @@ def predict(input_image_path):
     
     face = mtcnn(image)
     if face is None:
-        return "No face detected", None
+        return "No face detected", None, None, None
     
     # Face detection
     face_bboxes, _ = mtcnn.detect(image)
@@ -84,7 +83,23 @@ def predict(input_image_path):
     # Convert prediction and overlayed image to base64 for passing to HTML
     prediction_base64 = image_to_base64(overlayed_image_pil)
     
-    return prediction, prediction_base64
+    # Additional information
+    original_img_base64 = image_to_base64(image)
+    metadata = {'date': '2024-03-21', 'time': '12:00', 'location': 'Unknown'}
+    probability_score = output.item()
+    
+    return prediction, prediction_base64, original_img_base64, metadata, probability_score
+
+@app.route('/process_image', methods=['POST'])
+def process_image():
+    if 'image' in request.files:
+        image = request.files['image']
+        image_path = "temp_image.jpg"
+        image.save(image_path)
+        prediction, heatmap_base64, original_img_base64, metadata, probability_score = predict(image_path)
+        return render_template('prediction.html', prediction=prediction, heatmap_img=heatmap_base64, original_img=original_img_base64, metadata=metadata, probability_score=probability_score)
+    else:
+        return "No image found in request!"
 
 
 def image_to_base64(image):
@@ -101,17 +116,6 @@ def index():
 @app.route('/prediction/<prediction>')
 def prediction(prediction):
     return render_template('prediction.html',prediction=prediction)
-
-@app.route('/process_image', methods=['POST'])
-def process_image():
-    if 'image' in request.files:
-        image = request.files['image']
-        image_path = "temp_image.jpg"
-        image.save(image_path)
-        prediction, heatmap_base64 = predict(image_path)
-        return render_template('prediction.html', prediction=prediction, heatmap_img=heatmap_base64)
-    else:
-        return "No image found in request!"
 
 
 @app.route('/logout')
