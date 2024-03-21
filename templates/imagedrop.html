@@ -145,17 +145,20 @@
     </div>
     <div id="name">
         <div class="container">
-            <div id="drop-area" class="border rounded">
-                <div>
-                    <i class=" mt-4 fas fa-cloud-upload-alt text-primary"></i>
-                    <p class="lead mt-4">Drag and drop your Picture here or click to select a file.</p>
+            <form action="/process_image" method="POST" enctype="multipart/form-data">
+                <div id="drop-area" class="border rounded">
+                    <div>
+                        <i class="mt-4 fas fa-cloud-upload-alt text-primary"></i>
+                        <p class="lead mt-4">Drag and drop your Picture here or click to select a file.</p>
+                    </div>
+                    <div class="mt-0" style="position: relative;left: 5%;top: 3%;">
+                        <input type="file" name="image" id="fileElem" accept="image/*" />
+                    </div>
                 </div>
-                <div class="mt-0" style="position: relative;left: 5%;top: 3%;">
-                    <input type="file" id="fileElem" accept="image/*" />
-                </div>
-            </div>
-            <div id="gallery"></div>
-            <button id="submitBtn" class="active" onclick="submitImage()">Predict</button>
+                <div id="gallery"></div>
+                <button id="submitBtn" class="active" type="submit">Predict</button>
+            </form>
+            
         </div>
 
         <script>
@@ -262,4 +265,3 @@ fileElem.addEventListener('change', function (e) {
 </body>
 
 </html>
-
