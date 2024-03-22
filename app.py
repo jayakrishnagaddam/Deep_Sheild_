@@ -113,11 +113,6 @@ def image_to_base64(image):
 def index(): 
     return render_template('index.html')
 
-@app.route('/prediction/<prediction>')
-def prediction(prediction):
-    return render_template('prediction.html',prediction=prediction)
-
-
 @app.route('/logout')
 def logout():
     session.pop('email', None)  
