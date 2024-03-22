@@ -120,9 +120,14 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/home/<name>')
-def home(name):
-    return render_template('home.html', name=name)
+@app.route('/home')
+def home():
+    if 'email' in session:
+        name = session.get('name')
+        return render_template('home.html', name=name)
+    else:
+        return redirect(url_for('login'))
+
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -138,7 +143,8 @@ def login():
         if user_data:
             firstname = user_data['first_name']
             session['email'] = email
-            return redirect(url_for('home', name=firstname))
+            session['name']=firstname
+            return redirect(url_for('home'))
         else:
             error = 'Invalid username or password'
 

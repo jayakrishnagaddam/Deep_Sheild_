@@ -1,246 +1,135 @@
-<doctype html>
-  <html>
-    <head>
-      <title>
-       DeepSheild_Home
-      </title>
-      {%include 'bootstrap.html'%}
-      {%include 'homenav.html'%}
-      <style>
-          @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-* {
-  font-family: 'Open Sans', 'sans-serif';
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deep Sheild</title>
+    <style>
+      #image{
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        filter: blur(2px);
+      }
+      .upgrade-item {
+      border-bottom: 2px solid #ccc;
+    }
+      #content{
+        padding: 0;
+      box-sizing: border-box;
 
-#ulid{
-  padding-bottom: 4%;
-  text-align: center;
-}
+      }
+      body{
+        margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden; 
+      }
+      .image-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Adjust the gap between images */
+    margin-top: 20px; /* Add margin to the top */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+  }
 
-#liid {
-  position: relative;
-  left: 28%;
-  display: inline;
-  margin: 10px;
-}
+  .image-row img {
+    width: 330px;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 8px; 
+    transition: transform 0.3s ease;
+  }
 
-.download {
-  width: 200px;
-  height: 75px;
-  background: black;
-  float: left;
-  border-radius: 5px;
-  position: relative;
-  color: #fff;
-  cursor: pointer;
-  border: 1px solid #fff;
-}
+  .image-row img:hover {
+    transform: scale(1.1); 
+  }
 
-.download > .fa {
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  transform: translateY(-50%);
-}
+    </style>
+  </head>
+  {%include 'bootstrap.html'%}
+  <body>
+    <img id="image" src="static\aipic.jpg" alt="pic">
+    <div class="content lead">
+      <div class="bg-white text-lg-start mt-0">
+        <div class="row">
+          <div class="upgrade-item mt-4 mb-4 ">
+            <div class="upgrade-item">
+              <ul class="row" style="position: relative; left:2%;">
+                
+                <li style="position: relative;left: 2%;" id="aid" class="col">Data Collection</li>
+                <li style="position: relative;left: 2%;"  id="aid" class="col">Extraction</li>
+                <li style="position: relative;left: 1%;" id="aid" class="col">Artifact</li>
+                <li id="aid" class="col">Metadata</li>
+                <li id="aid" class="col">Ensemble Methods</li>
+                <li style="position: relative;left: 2%;"id="aid" class="col">Deepfake Detection</li>
 
-.df,
-.dfn {
-  position: absolute;
-  left: 70px;
-}
-
-.df {
-  top: 20px;
-  font-size: .68em;
-}
-
-.dfn {
-  top: 33px;
-  font-size: 1.08em;
-}
-
-.download:hover {
-  -webkit-filter: invert(100%);
-  filter: invert(100%);
-}
-
-        #image{
-          width: 100%;
-                height: 100vh; /* Set the height to cover the entire viewport */
-                object-fit: cover;
-        }
-          #bid{
-            background-color:bisque;
-            background-image: url('static/body-background.jpg') no-repeat center center fixed !important;
-            background-size: cover;
-            padding-top: 5%;
-
-          }
-        .overlay-container {
-          text-align: center;
-          color: white;
-        }
-        .card{
-          background-color: black !important;
-          border: 10%;
-        }
-        .custom-card {
-          background-color: black;
-        color: black !important;
-        text-decoration: none;
-        }
-        .card-text{
-          color: azure;
-        }
-      </style>
-    </head>
-    <body id="bid">
-      <div class="container">
-        <h2 class="mt-2 text-center">Welcome {{name}} !</h2>
-      <h1 class="mt-2 text-center" style="font-family:Helvetica; font-size:35px;"><b>Unveiling DeepSheild, 
-        Your Shield Against Digital DeepFakes</b></h1>
-      
-      <p class="text-center" style="font-size:24px;">Detect, analyze, and safeguard the
-         authenticity of visual content in a rapidly evolving digital landscape. 
-         Trust DeepSheild for a secure and vigilant defense against the manipulation of reality.</p>
-    </div>
-    <div class="mt-4 text-center" style="font-family:Helvetica; font-size:35px;">
-      <h1>Select Your File Format...</h1>
-    </div>
-      <div class="text-center row" style="margin: 40px;">
-        <div class="col-sm-3">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body custom-card">
-            <a href="{{url_for('videodrop')}}" class="card custom-card">
-            <h5 class="card-text">Detect a Video</h5>
-            <h6 class="card-text  mb-2">Upload video Here...</h6>
-            <h6 class="card-subtitle mb-2" style="color:greenyellow">(Beta)</h6>
-            <p class="card-text">If you have a video that you think is deepfake, Upload here and know if it is a real video or deepfaked.</p>
-            </a>
-          </div>
-        </div>
-        </div>
-        <div class="col-sm-3">
-        <div class="card" style="width: 18rem;color: black;">
-          <div class="card-body custom-card">
-            <a href="{{url_for('imagedrop')}}" class="card custom-card">
-            <h5 class="card-text">Detect a Picture</h5>
-            <h6 class="card-text mb-2 ">Upload Picture Here...</h6>
-            <h6 class="card-subtitle mb-2" style="color:greenyellow">(Beta)</h6>
-            <p class="card-text">If you have a Picture that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
-            </a>
-          </div>
-        </div>
-          </div>
-           <div class="col-sm-3">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body custom-card">
-            <a href="{{url_for('audiodrop')}}" class="card custom-card">
-            <h5 class="card-text">Detect an Audio</h5>
-            <h6 class="card-text mb-2 ">Upload Audio Here...</h6>
-            <h6 class="card-subtitle mb-2" style="color:greenyellow">(Beta)</h6>
-            <p class="card-text">If you have an Audio that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
-          </a>
-          </div>
-        </div>
-             </div>
-              <div class="col-sm-3">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body custom-card">
-            <a href="your-page-url" class="card custom-card">
-            <h5 class="card-text ">Detect a Document</h5>
-            <h6 class="card-text mb-2 ">Upload Your Document Here...</h6>
-            <h6 class="card-subtitle mb-2" style="color: red;">(Under Development)</h6>
-            <p class="card-text">If you have a Document that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
-            </a>
-          </div>
-        </div>
-                </div>
-      </div>
-       <div class="text-center row" style="margin: 40px;">
-      
-         <div class="col-sm-3">
-           <div class="card" style="width: 18rem;">
-             <div class="card-body custom-card">
-              <a href="your-page-url" class="card custom-card">
-               <h5 class="card-text">Detect an Archive</h5>
-               <h6 class="card-text mb-2 ">Upload Your Archive Here...</h6>
-               <h6 class="card-subtitle mb-2" style="color: red;">(Under Development)</h6>
+                
+            </ul>
             
-               <p class="card-text">If you have a Document that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
-               </a>
-             </div>
+            </div>
+          </div>
+          <div class="col">
+                    <p class="lead" style="font-size: 24px; position: relative; top: 40%; left: 20%;">What exactly is a Deepfake?</p>
+          </div>
+           <div class="col">
+               <p class="text-center" style="position: relative; right: 10%;">A deep fake refers to a highly sophisticated form of synthetic media generated 
+                through deep learning techniques, particularly using artificial intelligence algorithms 
+                known as neural networks. These algorithms are trained on vast amounts of data, often comprising
+                 images and videos of a particular individual. Deep fakes utilize this training to superimpose or
+                  replace the likeness of one person onto another in video or image content, creating convincing and
+                   often indistinguishable simulations of events that never occurred or portrayals of individuals saying
+                    or doing things they never did. This technology has raised concerns due to its potential to spread
+                     misinformation, 
+                manipulate public opinion, and facilitate various forms of fraud or exploitation.</p>
            </div>
-                      </div>
-         <div class="col-sm-3">
-           <div class="card" style="width: 18rem;">
-             <div class="card-body custom-card">
-              <a href="your-page-url" class="card custom-card">
-               <h5 class="card-text">Detect a Metadata</h5>
-               <h6 class="card-text mb-2 ">Upload a Metadata Here...</h6>
-               <h6 class="card-subtitle mb-2" style="color: red;">(Under Development)</h6>
-            
-               <p class="card-text">If you have a Metadata that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
-               </a>
-             </div>
-           </div>
-                      </div>
-         <div class="col-sm-3">
-           <div class="card" style="width: 18rem;">
-             <div class="card-body custom-card">
-              <a href="your-page-url" class="card custom-card">
-               <h5 class="card-text">Detect a Blockchain </h5>
-               <h6 class="card-text mb-2">Upload your Blockchain Here...</h6>
-               <h6 class="card-subtitle mb-2" style="color: red;">(Under Development)</h6>
-            
-               <p class="card-text">If you have a Blockchain that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
-               </a>
-             </div>
-           </div>
-                      </div>
-                    <div class="col-sm-3">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body custom-card">
-            <a href="your-page-url" class="card custom-card">
-            <h5 class="card-text">Detect a 3D Models </h5>
-            <h6 class="card-text mb-2 ">Upload a 3D Model</h6>
-            <h6 class="card-subtitle mb-2" style="color: red;">(Under Development)</h6>
-            
-            <p class="card-text">If you have a 3D Model that you think is deepfake, Upload here and know if it is a real or deepfaked.</p>
-            </a>
-          </div>
         </div>
-                    </div>
+        <div class="bg-light text-dark text-lg-start mt-0 p-4 rounded-lg shadow">
+          <h2 class="text-center fw-bold mb-4">Example Deep Fakes</h2>
+        <div class="image-row mb-4">
+          <img src="static\df1.jpeg" alt="Pipeline" class="rounded">
+          <img src="static\df2.jpg" alt="Transformers" class="rounded">
+          <img src="static\df3.jpg" alt="Flask" class="rounded">
+          <img src="static\df4.jpg" alt="MongoDB" class="rounded">
+        </div>
+        </div>
+
+         
+
+
+
+        
+
       </div>
-       
+      <div class="mt-4 text-center">
+        <h2 class="text-center fw-bold">Detect a Deepfake..</h2>
+        <div class="mt-2" style="position: relative; left: -1%;">Select your file format</div>
+      </div>
+      {%include 'contents.html'%}
+
+      <div class="content">
+        <div class=" row bg-white text-dark text-lg-start mt-0 p-4 rounded-lg shadow">
+          <div class="col">
+            <p class="lead" style="font-size: 24px; position: relative; top: 40%; left: 20%;">How does Deepsheild Works?</p>
+  </div>
+   <div class="col">
+       <p class="lead text-center" style="position: relative; right: 10%;">Our deepfake detection model employs advanced 
+        deep learning techniques to accurately differentiate between genuine and manipulated facial images. By integrating 
+        the MTCNN for rapid and precise facial detection and the InceptionResnetV1 architecture pretrained on the VGGFace2
+         dataset for detailed feature extraction, our model effectively identifies subtle cues indicative of deepfake 
+         manipulation. Operating through a binary classification process, it swiftly determines whether an input image
+          contains a real or fake face. Implemented using PyTorch, our model ensures efficient computation across various 
+          hardware configurations. It has been meticulously fine-tuned on extensive datasets to generalize well to diverse
+           deepfake variations and adapt to evolving synthetic media threats. With our solution, users can confidently verify
+         the authenticity of facial images, mitigating the dissemination of misinformation and manipulation online.</p>
+   </div>
+
+        </div>
+      </div>
     </div>
-</div>
-                 <div>
-                          
-                 </div>
-      <div class="block__header mb-4 text-center">
-       
-        <h1><b>About Us</b></h1>
-        <p style="font-size: 24px;">Welcome to DeepSheild, where innovation meets integrity in the fight 
-          against deepfake manipulation. At DeepSheild, we are passionate about 
-          ensuring the authenticity of digital content in an era where misinformation poses 
-          a significant threat. Our dedicated team of researchers, developers, and tech enthusiasts 
-          collaborates to bring cutting-edge deepfake detection solutions to the forefront. With a commitment 
-          to transparency and ethical AI practices, we strive to empower users and organizations with the tools 
-          they need to identify and mitigate the impact of manipulated media. Join us on this journey as we champion 
-          truth, integrity, and technological advancements in the realm of digital content security.</p>
-      </div>
-      <div class="">
-        <h1 class="text-center">A Proficient Deepfake Detector Developed by Tech enthusiast</h1>
-<p style="font-size: 24px;" class="text-center">In an era where digital content can be manipulated, 
-  DeepSheild helps maintain trust by providing a tool that safeguards against deceptive and misleading videos.</p>
-      </div>
-      {%include 'corousel.html'%}
-      {%include 'footer.html'%}
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    </body>
-  </html>
+  </body>
+</html>
