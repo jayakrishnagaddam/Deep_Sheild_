@@ -12,7 +12,7 @@ import base64
 from io import BytesIO
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "1234"  # Add a secret key for flash messages
+app.config["SECRET_KEY"] = "1234"
 app.config["MONGO_URI"] = "mongodb+srv://2100090162:manigaddam@deepsheild.kzgpo9p.mongodb.net/deepsheild"
 mongo = PyMongo(app)
 
