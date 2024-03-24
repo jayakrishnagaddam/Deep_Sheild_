@@ -3,53 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction</title>
+    <title>Prediction Result</title>
+    {%include 'bootstrap.html'%}
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
+        header {
+            background-color: #007bff;
+            color: #fff;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        main {
+            padding: 20px;
         }
         h1, h2 {
+            color: #333;
             text-align: center;
-        }
-        h2 {
-            margin-top: 30px;
-            font-size: 1.2rem;
-            color: #007bff;
+            margin-bottom: 20px;
         }
         .image-container {
             display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 20px;
         }
         .image-container img {
-            max-width: 45%;
+            max-width: 100%;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
         }
         .metadata {
-            margin-top: 20px;
             border-top: 2px solid #007bff;
             padding-top: 20px;
+            margin-top: 20px;
         }
         .metadata p {
             margin-bottom: 10px;
             font-size: 0.9rem;
-            color: #333;
+            color: #555;
+        }
+        .probability-score {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .explanation {
+            margin-bottom: 20px;
         }
         .download-links {
-            margin-top: 30px;
             text-align: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
         .download-links a {
             display: inline-block;
@@ -66,18 +78,20 @@
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Prediction: {{ prediction }}</h1>
+<body class="container">
+    <header>
+        <h1>Prediction Result</h1>
+    </header>
+    <main>
+        <h2>Prediction: {{ prediction }}</h2>
 
         {% if heatmap_img %}
-            <h2>Heat Map</h2>
             <div class="image-container">
+                <h2>Heat Map</h2>
                 <img src="data:image/jpeg;base64,{{ heatmap_img }}" alt="Heat Map">
             </div>
         {% endif %}
 
-        <!-- Original Image and Metadata -->
         <div class="image-container">
             <div>
                 <h2>Original Image</h2>
@@ -91,20 +105,21 @@
             </div>
         </div>
 
-        <!-- Probability Score -->
-        <h2>Probability Score</h2>
-        <p>{{ probability_score }}</p>
+        <div class="probability-score">
+            <h2>Probability Score</h2>
+            <p>{{ probability_score }}</p>
+        </div>
 
-        <!-- Explanation -->
-        <h2>Explanation</h2>
-        <p>Here is a brief explanation of how the prediction was made...</p>
+        <div class="explanation">
+            <h2>Explanation</h2>
+            <p>Here is a brief explanation of how the prediction was made...</p>
+        </div>
 
-        <!-- Download Links -->
         <div class="download-links">
             <h2>Download</h2>
             <a href="/download?file=original">Download Original Image</a>
             <a href="/download?file=heatmap">Download Heat Map</a>
         </div>
-    </div>
+    </main>
 </body>
 </html>
