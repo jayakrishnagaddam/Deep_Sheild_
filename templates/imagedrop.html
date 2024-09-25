@@ -11,8 +11,8 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background: #f0f0f0; /* Light background color */
-            position: relative; /* Ensure relative positioning for the content to overlay */
+            background: #f0f0f0; 
+            position: relative;
         }
 
         .background {
@@ -27,13 +27,13 @@
         .circle {
             position: absolute;
             border-radius: 50%;
-            mix-blend-mode: overlay; /* Allow circles to overlay without affecting the content */
+            mix-blend-mode: overlay; 
         }
 
         .circle1 {
             width: 150px;
             height: 150px;
-            background: #7fb8e1; /* Light blue */
+            background: #7fb8e1; 
             top: 20%;
             left: 10%;
         }
@@ -41,7 +41,7 @@
         .circle2 {
             width: 120px;
             height: 120px;
-            background: #a8d0e6; /* Lighter blue */
+            background: #a8d0e6; 
             top: 50%;
             left: 30%;
         }
@@ -49,13 +49,12 @@
         .circle3 {
             width: 180px;
             height: 180px;
-            background: #b3b3cc; /* Light lavender */
+            background: #b3b3cc; 
             top: 70%;
             left: 70%;
         }
 
-        /* ... (add more circles or customize as needed) ... */
-
+        
         #ex {
             position: relative;
             left: 5%;
@@ -82,9 +81,9 @@
 
         #drop-area {
             height: 250px;
-            background-color: rgba(255, 255, 255, 0.9); /* Light white background */
-            border: 2px dashed #000; /* Black dashed border */
-            border-radius: 20px; /* Increase border radius for a smoother look */
+            background-color: rgba(255, 255, 255, 0.9); 
+            border: 2px dashed #000; 
+            border-radius: 20px; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -92,16 +91,16 @@
             transition: border 0.3s;
             position: relative;
             overflow: hidden;
-            margin: 20px; /* Added margin for equal spacing on all sides */
+            margin: 20px; 
         }
 
         #drop-area div {
-            text-align: center; /* Center-align the content inside the drop area */
+            text-align: center; 
         }
 
         #drop-area i {
             font-size: 48px;
-            color: #007bff; /* Blue color for the cloud icon */
+            color: #007bff;
         }
 
         #drop-area p {
@@ -121,7 +120,7 @@
             transition: background-color 0.3s;
         }
 
-        /* ... (other styles remain the same) ... */
+        
     </style>
     {% include 'bootstrap.html' %}
 </head>
@@ -131,14 +130,14 @@
         <div class="circle circle1"></div>
         <div class="circle circle2"></div>
         <div class="circle circle3"></div>
-        <!-- Add more circles or customize as needed -->
+        
     </div>
     <div id="ex">
         <div class="lead text-center mt-4">
             <h1 class="lead" style="font-size:30px;">Upload a Picture to DEEPSHEILD</h1>
         </div>
         <div class="text-center">
-            <h5 class="mt-4 lead" style="">
+            <h5 class="mt-4 lead">
                 Select or Drag and Drop a Picture here to find if it is real or deepfake...
             </h5>
         </div>
@@ -167,7 +166,7 @@
             let gallery = document.getElementById('gallery');
             let submitBtn = document.getElementById('submitBtn');
         
-            // Event listeners for drag and drop functionality
+        
             ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
                 dropArea.addEventListener(eventName, preventDefaults, false);
                 document.body.addEventListener(eventName, preventDefaults, false);
@@ -183,49 +182,49 @@
         
             dropArea.addEventListener('drop', handleDrop, false);
         
-            // Prevent default behavior for drag and drop events
+        
             function preventDefaults(e) {
                 e.preventDefault();
                 e.stopPropagation();
             }
         
-            // Highlight drop area when dragging over it
+            
             function highlight(e) {
                 dropArea.classList.add('highlight');
             }
         
-            // Remove highlight from drop area when dragging leaves it
+            
             function unhighlight(e) {
                 dropArea.classList.remove('highlight');
             }
         
-            // Handle drop event
+        
             function handleDrop(e) {
                 let dt = e.dataTransfer;
                 let files = dt.files || e.target.files;
                 handleFiles(files);
             }
         
-           // Click event listener for drop area to trigger file input click
+           
 dropArea.addEventListener('click', () => {
     fileElem.click();
 });
 
-// Change event listener for file input
+
 fileElem.addEventListener('change', function (e) {
     handleFiles(this.files);
 });
 
 
-            // Function to handle selected files
+        
             function handleFiles(files) {
                 files = [...files];
-                gallery.innerHTML = ''; // Clear previous files
+                gallery.innerHTML = ''; 
                 files.forEach(previewFile);
                 updateSubmitButton(files.length > 0);
             }
         
-            // Function to preview selected files
+            
             function previewFile(file) {
                 let reader = new FileReader();
                 reader.readAsDataURL(file);
@@ -237,14 +236,14 @@ fileElem.addEventListener('change', function (e) {
                         gallery.appendChild(video);
                     }
         
-                    // Display file name
+                    
                     let fileName = document.createElement('p');
                     fileName.textContent = file.name;
                     gallery.appendChild(fileName);
                 }
             }
         
-            // Function to update submit button state
+        
             function updateSubmitButton(active) {
                 if (active) {
                     submitBtn.classList.add('active');
@@ -255,7 +254,7 @@ fileElem.addEventListener('change', function (e) {
                 }
             }
         
-            // Function to handle submit button click
+            
             function submitImage() {
                 alert('Image submitted successfully!');
             }

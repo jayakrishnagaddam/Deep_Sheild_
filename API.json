@@ -1,0 +1,9 @@
+{"web":
+{"client_id":"327025315574-urqtgpl60f11h2gv436pbajok3q0vtg9.apps.googleusercontent.com",
+"project_id":"deepsheild",
+"auth_uri":"https://accounts.google.com/o/oauth2/auth",
+"token_uri":"https://oauth2.googleapis.com/token",
+"auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+"client_secret":"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",
+"redirect_uris":["https://localhost/callback"]}
+}
